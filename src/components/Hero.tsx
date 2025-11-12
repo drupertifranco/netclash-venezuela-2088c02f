@@ -24,7 +24,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto text-center space-y-8">
           {/* Logo */}
           <div className="flex justify-center mb-6">
-            <img src={netclashLogo} alt="NETCLASH Logo" className="h-16 w-auto" />
+            <img src={netclashLogo} alt="NETCLASH Logo" className="h-32 w-auto" />
           </div>
           
           {/* Main Headline */}
