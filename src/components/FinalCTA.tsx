@@ -26,7 +26,11 @@ const FinalCTA = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button variant="hero" size="lg">
+            <Button 
+              variant="hero" 
+              size="lg"
+              onClick={() => window.open('https://forms.gle/ewMubcvuX6XJU2G79', '_blank')}
+            >
               {t.finalCta.registerBtn}
               <ArrowRight className="w-5 h-5" />
             </Button>
