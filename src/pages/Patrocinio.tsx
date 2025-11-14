@@ -78,7 +78,7 @@ const Patrocinio = () => {
                 className="w-full"
                 variant="default"
                 size="lg"
-                onClick={() => window.open('https://forms.gle/sponsorship-form', '_blank')}
+                onClick={() => window.open('https://forms.gle/MJRc1mGBtMsyGyX18', '_blank')}
               >
                 {t.sponsorship.formBtn}
               </Button>
@@ -101,13 +101,7 @@ const Patrocinio = () => {
                 className="w-full"
                 variant="default"
                 size="lg"
-                onClick={() => {
-                  // Crear un enlace temporal para descargar
-                  const link = document.createElement('a');
-                  link.href = '/netclash-sponsorship.pdf';
-                  link.download = 'NETCLASH-Sponsorship-Presentation.pdf';
-                  link.click();
-                }}
+                onClick={() => window.open('https://drive.google.com/file/d/10G8Qe9Jg0OOAvMVquctnnB35iF9OVjry/view?usp=drive_link', '_blank')}
               >
                 {t.sponsorship.downloadBtn}
               </Button>
