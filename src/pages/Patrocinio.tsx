@@ -40,20 +40,21 @@ const Patrocinio = () => {
       <section className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {/* Schedule Session Card */}
-          <Card className="bg-card border-border hover:border-primary transition-colors">
-            <CardHeader>
+          <Card className="bg-card border-border hover:border-primary transition-colors flex flex-col">
+            <CardHeader className="flex-grow">
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                 <Calendar className="w-6 h-6 text-primary" />
               </div>
-              <CardTitle>{t.sponsorship.scheduleTitle}</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-xl mb-3">{t.sponsorship.scheduleTitle}</CardTitle>
+              <CardDescription className="text-base min-h-[3rem]">
                 {t.sponsorship.scheduleDescription}
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="pt-0">
               <Button 
                 className="w-full"
                 variant="default"
+                size="lg"
                 onClick={() => window.open('https://calendly.com/netclash-info/30min', '_blank')}
               >
                 {t.sponsorship.scheduleBtn}
@@ -62,20 +63,21 @@ const Patrocinio = () => {
           </Card>
 
           {/* Form Card */}
-          <Card className="bg-card border-border hover:border-primary transition-colors">
-            <CardHeader>
+          <Card className="bg-card border-border hover:border-primary transition-colors flex flex-col">
+            <CardHeader className="flex-grow">
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                 <FileText className="w-6 h-6 text-primary" />
               </div>
-              <CardTitle>{t.sponsorship.formTitle}</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-xl mb-3">{t.sponsorship.formTitle}</CardTitle>
+              <CardDescription className="text-base min-h-[3rem]">
                 {t.sponsorship.formDescription}
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="pt-0">
               <Button 
                 className="w-full"
                 variant="default"
+                size="lg"
                 onClick={() => window.open('https://forms.gle/sponsorship-form', '_blank')}
               >
                 {t.sponsorship.formBtn}
@@ -84,20 +86,21 @@ const Patrocinio = () => {
           </Card>
 
           {/* Download Card */}
-          <Card className="bg-card border-border hover:border-primary transition-colors">
-            <CardHeader>
+          <Card className="bg-card border-border hover:border-primary transition-colors flex flex-col">
+            <CardHeader className="flex-grow">
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                 <Download className="w-6 h-6 text-primary" />
               </div>
-              <CardTitle>{t.sponsorship.downloadTitle}</CardTitle>
-              <CardDescription>
+              <CardTitle className="text-xl mb-3">{t.sponsorship.downloadTitle}</CardTitle>
+              <CardDescription className="text-base min-h-[3rem]">
                 {t.sponsorship.downloadDescription}
               </CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="pt-0">
               <Button 
                 className="w-full"
-                variant="outline"
+                variant="default"
+                size="lg"
                 onClick={() => {
                   // Crear un enlace temporal para descargar
                   const link = document.createElement('a');
