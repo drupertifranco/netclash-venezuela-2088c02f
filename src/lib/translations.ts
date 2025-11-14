@@ -8,7 +8,7 @@ export const translations = {
     },
     networkWar: {
       title: "Qué es la Network War",
-      subtitle: "Un campo de batalla de alto riesgo donde los profesionales de redes y los estudiantes más brillantes compiten en laboratorios en vivo para demostrar su experiencia en protocolos de enrutamiento, troubleshooting bajo presión y diseño de redes del mundo real.",
+      subtitle: "Un campo de batalla donde profesionales, especialistas y administradores de redes compiten en laboratorios en vivo para demostrar su experiencia en protocolos de enrutamiento, troubleshooting bajo presión y diseño de redes en entornos reales.",
       features: {
         labs: {
           title: "Laboratorios en Vivo",
@@ -84,7 +84,7 @@ export const translations = {
     },
     networkWar: {
       title: "What is the Network War",
-      subtitle: "A high-stakes battleground where network professionals and the brightest students compete in live labs to prove their expertise in routing protocols, troubleshooting under pressure, and real-world network design.",
+      subtitle: "A battleground where network professionals, specialists, and administrators compete in live labs to prove their expertise in routing protocols, troubleshooting under pressure, and network design in real environments.",
       features: {
         labs: {
           title: "Live Labs",
