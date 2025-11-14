@@ -65,6 +65,29 @@ export const translations = {
       registerBtn: "Registrarse Ahora",
       sponsorBtn: "Patrocinar el Evento"
     },
+    sponsorship: {
+      title: "Patrocina NETCLASH",
+      subtitle: "Conecta con el talento técnico más brillante de Venezuela",
+      description: "NETCLASH reúne a los mejores profesionales de redes del país. Posiciona tu marca frente a ingenieros altamente calificados y empresas tecnológicas líderes.",
+      scheduleTitle: "Agenda una Sesión",
+      scheduleDescription: "Habla con nuestro equipo sobre oportunidades de patrocinio personalizadas",
+      scheduleBtn: "Agendar Sesión",
+      formTitle: "Solicitud de Patrocinio",
+      formDescription: "Completa el formulario para recibir más información sobre paquetes de patrocinio",
+      formBtn: "Llenar Formulario",
+      downloadTitle: "Presentación de Patrocinio",
+      downloadDescription: "Descarga nuestra presentación completa con detalles de audiencia, alcance y beneficios",
+      downloadBtn: "Descargar Presentación",
+      benefits: {
+        title: "Beneficios de Patrocinar",
+        items: [
+          "Exposición de marca ante profesionales de redes altamente calificados",
+          "Acceso directo a candidatos para reclutamiento",
+          "Branding durante transmisiones en vivo del evento",
+          "Oportunidades de networking con líderes de la industria"
+        ]
+      }
+    },
     footer: {
       copyright: "© 2025 NETCLASH. Todos los derechos reservados.",
       tagline: "La Premier Competencia de Redes de Venezuela"
@@ -140,6 +163,29 @@ export const translations = {
       description: "Spots are limited. Register now to secure your place in Venezuela's top networking competition.",
       registerBtn: "Register Now",
       sponsorBtn: "Sponsor the Event"
+    },
+    sponsorship: {
+      title: "Sponsor NETCLASH",
+      subtitle: "Connect with Venezuela's brightest technical talent",
+      description: "NETCLASH brings together the country's best network professionals. Position your brand in front of highly skilled engineers and leading tech companies.",
+      scheduleTitle: "Schedule a Session",
+      scheduleDescription: "Talk to our team about customized sponsorship opportunities",
+      scheduleBtn: "Schedule Session",
+      formTitle: "Sponsorship Request",
+      formDescription: "Complete the form to receive more information about sponsorship packages",
+      formBtn: "Fill Form",
+      downloadTitle: "Sponsorship Presentation",
+      downloadDescription: "Download our complete presentation with audience details, reach, and benefits",
+      downloadBtn: "Download Presentation",
+      benefits: {
+        title: "Sponsorship Benefits",
+        items: [
+          "Brand exposure to highly skilled network professionals",
+          "Direct access to candidates for recruitment",
+          "Branding during live event broadcasts",
+          "Networking opportunities with industry leaders"
+        ]
+      }
     },
     footer: {
       copyright: "© 2025 NETCLASH. All rights reserved.",
