@@ -1,22 +1,25 @@
-import { Zap, Network, Bot } from "lucide-react";
+import { Zap, Target, Trophy } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const NetworkWar = () => {
+  const { t } = useLanguage();
+  
   const features = [
     {
       icon: <Zap className="w-8 h-8 text-primary" />,
-      title: "Live Labs",
-      description: "Hands-on network challenges in real-time environments"
+      title: t.networkWar.features.labs.title,
+      description: t.networkWar.features.labs.description
     },
     {
-      icon: <Network className="w-8 h-8 text-primary" />,
-      title: "Routing Challenge",
-      description: "Master OSPF, BGP, and complex network protocols"
+      icon: <Target className="w-8 h-8 text-primary" />,
+      title: t.networkWar.features.competitive.title,
+      description: t.networkWar.features.competitive.description
     },
     {
-      icon: <Bot className="w-8 h-8 text-primary" />,
-      title: "Automation",
-      description: "Deploy modern network automation solutions"
+      icon: <Trophy className="w-8 h-8 text-primary" />,
+      title: t.networkWar.features.visibility.title,
+      description: t.networkWar.features.visibility.description
     }
   ];
 
@@ -26,19 +29,14 @@ const NetworkWar = () => {
         {/* Section Header */}
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold">
-            The First Live <span className="text-primary">"Network War"</span> for
-            <br />
-            Venezuela's Top Talent
+            {t.networkWar.title}
           </h2>
         </div>
         
         {/* Description */}
         <div className="max-w-4xl mx-auto mb-12">
           <p className="text-lg text-muted-foreground leading-relaxed text-center">
-            NETCLASH is not a test. It's a high-stakes, practical "network hackathon" where professionals, 
-            students, and professors solve real-world network challenges. Participants will face live labs 
-            involving complex routing (OSPF, BGP), network automation, and high-pressure troubleshooting 
-            scenarios. This is your arena to prove your expertise.
+            {t.networkWar.subtitle}
           </p>
         </div>
         

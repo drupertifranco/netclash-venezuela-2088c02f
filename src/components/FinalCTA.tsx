@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Briefcase } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const FinalCTA = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="py-20 px-4 relative overflow-hidden">
       {/* Gradient background */}
@@ -11,25 +14,25 @@ const FinalCTA = () => {
         <div className="text-center space-y-8">
           {/* Headline */}
           <h2 className="text-5xl md:text-6xl font-bold">
-            Stop Simulating.
+            {t.finalCta.title}
             <br />
-            <span className="text-primary">Start Competing.</span>
+            <span className="text-primary">{t.finalCta.subtitle}</span>
           </h2>
           
           {/* Subheadline */}
           <p className="text-xl text-muted-foreground">
-            Spots are limited. Register now to secure your place in Venezuela's top networking competition.
+            {t.finalCta.description}
           </p>
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Button variant="hero" size="lg">
-              Register Now
+              {t.finalCta.registerBtn}
               <ArrowRight className="w-5 h-5" />
             </Button>
             
             <Button variant="outline-light" size="lg">
-              Sponsor the Event
+              {t.finalCta.sponsorBtn}
               <Briefcase className="w-5 h-5" />
             </Button>
           </div>

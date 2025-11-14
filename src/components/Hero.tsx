@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import netclashLogo from "@/assets/netclash-logo.png";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
+  const { t } = useLanguage();
   return (
     <section 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
@@ -31,26 +33,24 @@ const Hero = () => {
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
             <span className="text-primary">NETCLASH:</span>
             <br />
-            Venezuela's Ultimate
-            <br />
-            Networking Competition
+            {t.hero.headline}
           </h1>
           
           {/* Subheadline */}
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Where Talent Meets Opportunity. Prove your skills in live labs, get hired by top tech companies, and win career-boosting prizes.
+            {t.hero.subheadline}
           </p>
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
             <Button variant="hero" size="lg">
-              Register for the Challenge
+              {t.hero.registerBtn}
               <ArrowRight className="w-5 h-5" />
             </Button>
             
             <div className="flex items-center gap-2 text-muted-foreground">
               <Users className="w-5 h-5 text-primary" />
-              <span className="text-sm font-medium">Limited Spots Available</span>
+              <span className="text-sm font-medium">{t.hero.limitedSpots}</span>
             </div>
           </div>
         </div>
