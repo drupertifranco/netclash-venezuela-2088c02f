@@ -6,7 +6,7 @@ type Language = 'es' | 'en';
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: typeof translations.es;
+  t: typeof translations.es & { language: Language };
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -17,7 +17,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const value = {
     language,
     setLanguage,
-    t: translations[language],
+    t: { ...translations[language], language },
   };
 
   return (

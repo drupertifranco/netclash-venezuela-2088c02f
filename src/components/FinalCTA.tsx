@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Briefcase } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useNavigate } from "react-router-dom";
 
 const FinalCTA = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   
   return (
     <section className="py-20 px-4 relative overflow-hidden">
@@ -35,7 +37,11 @@ const FinalCTA = () => {
               <ArrowRight className="w-5 h-5" />
             </Button>
             
-            <Button variant="outline-light" size="lg">
+            <Button 
+              variant="outline-light" 
+              size="lg"
+              onClick={() => navigate('/patrocinio')}
+            >
               {t.finalCta.sponsorBtn}
               <Briefcase className="w-5 h-5" />
             </Button>
