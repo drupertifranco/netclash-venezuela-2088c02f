@@ -36,35 +36,30 @@ const Patrocinio = () => {
         </div>
       </section>
 
-      {/* Calendly Widget Section */}
-      <section className="container mx-auto px-4 py-12">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <div className="text-center space-y-4">
-            <div className="w-16 h-16 rounded-lg bg-primary/10 flex items-center justify-center mx-auto">
-              <Calendar className="w-8 h-8 text-primary" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold">
-              {t.sponsorship.scheduleTitle}
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              {t.sponsorship.scheduleDescription}
-            </p>
-          </div>
-          
-          {/* Calendly inline widget */}
-          <div className="rounded-lg overflow-hidden border border-border">
-            <div 
-              className="calendly-inline-widget" 
-              data-url="https://calendly.com/netclash-info/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=000000&text_color=ff9600" 
-              style={{ minWidth: '320px', height: '700px' }}
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Action Cards */}
       <section className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          {/* Schedule Session Card */}
+          <Card className="bg-card border-border hover:border-primary transition-colors">
+            <CardHeader>
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
+                <Calendar className="w-6 h-6 text-primary" />
+              </div>
+              <CardTitle>{t.sponsorship.scheduleTitle}</CardTitle>
+              <CardDescription>
+                {t.sponsorship.scheduleDescription}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button 
+                className="w-full"
+                variant="default"
+                onClick={() => window.open('https://calendly.com/netclash-info/30min', '_blank')}
+              >
+                {t.sponsorship.scheduleBtn}
+              </Button>
+            </CardContent>
+          </Card>
 
           {/* Form Card */}
           <Card className="bg-card border-border hover:border-primary transition-colors">
@@ -150,7 +145,7 @@ const Patrocinio = () => {
           </p>
           <Button 
             size="lg"
-            onClick={() => window.open('https://calendly.com/netclash', '_blank')}
+            onClick={() => window.open('https://calendly.com/netclash-info/30min', '_blank')}
           >
             {t.sponsorship.scheduleBtn}
           </Button>
