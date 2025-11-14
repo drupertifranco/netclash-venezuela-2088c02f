@@ -1,22 +1,25 @@
 import { Target, Award, Users } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Opportunity = () => {
+  const { t } = useLanguage();
+  
   const benefits = [
     {
       icon: <Target className="w-10 h-10 text-primary" />,
-      title: "GET DISCOVERED",
-      description: "Showcase your skills directly to CTOs and managers from Venezuela's leading ISPs, Data Centers, and tech companies who are actively recruiting."
+      title: t.opportunity.benefits.talent.title,
+      description: t.opportunity.benefits.talent.description
     },
     {
       icon: <Award className="w-10 h-10 text-primary" />,
-      title: "WIN STRATEGIC PRIZES",
-      description: "Compete for a grand prize designed to accelerate your career, including high-level certifications (like CCIE/JNCIE paths), professional-grade lab equipment, or specialized bootcamps."
+      title: t.opportunity.benefits.prizes.title,
+      description: t.opportunity.benefits.prizes.description
     },
     {
       icon: <Users className="w-10 h-10 text-primary" />,
-      title: "CONNECT WITH THE INDUSTRY",
-      description: "This is the ultimate networking event. Meet the leaders, mentors, and peers who are defining the future of telecommunications in Venezuela."
+      title: t.opportunity.benefits.network.title,
+      description: t.opportunity.benefits.network.description
     }
   ];
 
@@ -26,9 +29,7 @@ const Opportunity = () => {
         {/* Section Header */}
         <div className="text-center mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold">
-            This is More Than a Competition.
-            <br />
-            <span className="text-primary">It's Your Next Career Move.</span>
+            {t.opportunity.title}
           </h2>
         </div>
         

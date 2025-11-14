@@ -1,14 +1,17 @@
 import { Card } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 import netclashIcon from "@/assets/netclash-icon.png";
 
 const Partners = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="py-20 px-4 bg-secondary/30">
       <div className="container mx-auto max-w-6xl">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold">
-            Our Partners & <span className="text-primary">Talent Scouts</span>
+            {t.partners.title} <span className="text-primary">{t.partners.talentScouts}</span>
           </h2>
         </div>
         
@@ -29,7 +32,7 @@ const Partners = () => {
         </div>
         
         <p className="text-center text-muted-foreground mt-8 text-sm">
-          Leading ISPs, Data Centers, and tech companies from across Venezuela
+          {t.partners.subtitle}
         </p>
       </div>
     </section>

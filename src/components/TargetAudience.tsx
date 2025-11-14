@@ -1,12 +1,8 @@
 import { CheckCircle2 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const TargetAudience = () => {
-  const audienceTypes = [
-    "Professional Network Engineer",
-    "Telecommunications Specialist",
-    "Bright University Student",
-    "IT or Networking Professor"
-  ];
+  const { t } = useLanguage();
 
   return (
     <section className="py-20 px-4">
@@ -14,16 +10,16 @@ const TargetAudience = () => {
         {/* Section Header */}
         <div className="text-center mb-12 space-y-4">
           <h2 className="text-4xl md:text-5xl font-bold">
-            Are You Ready for the <span className="text-primary">Challenge?</span>
+            {t.targetAudience.title} <span className="text-primary">{t.targetAudience.challenge}</span>
           </h2>
           <p className="text-xl text-muted-foreground">
-            NETCLASH is built for the best. If you are a...
+            {t.targetAudience.subtitle}
           </p>
         </div>
         
         {/* Audience List */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-8">
-          {audienceTypes.map((type, index) => (
+          {t.targetAudience.types.map((type, index) => (
             <div 
               key={index}
               className="flex items-center gap-3 p-4 bg-card border border-border rounded-lg hover:border-primary/50 transition-all"
@@ -35,7 +31,7 @@ const TargetAudience = () => {
         </div>
         
         <p className="text-center text-xl font-bold text-primary">
-          ...then this is your arena.
+          {t.targetAudience.tagline}
         </p>
       </div>
     </section>
