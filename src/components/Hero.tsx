@@ -43,7 +43,11 @@ const Hero = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button variant="hero" size="lg">
+            <Button 
+              variant="hero" 
+              size="lg"
+              onClick={() => window.open('https://forms.gle/MJRc1mGBtMsyGyX18', '_blank')}
+            >
               {t.hero.registerBtn}
               <ArrowRight className="w-5 h-5" />
             </Button>
