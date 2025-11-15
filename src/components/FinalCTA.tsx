@@ -31,7 +31,7 @@ const FinalCTA = () => {
             <Button 
               variant="hero" 
               size="lg"
-              onClick={() => window.open('https://forms.gle/ewMubcvuX6XJU2G79', '_blank')}
+              onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSdJGogq_CRoBubW3yQRs22EEBxQg-lICf9HldNT7hCKLi2Tsg/viewform?usp=header', '_blank')}
             >
               {t.finalCta.registerBtn}
               <ArrowRight className="w-5 h-5" />
