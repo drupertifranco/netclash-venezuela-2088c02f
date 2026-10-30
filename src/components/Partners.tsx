@@ -24,7 +24,7 @@ const Partners = () => {
             >
               <img 
                 src={netclashIcon} 
-                alt="Partner Logo" 
+                alt="" aria-hidden="true" 
                 className="h-20 w-auto opacity-70 hover:opacity-100 transition-opacity"
               />
             </Card>
