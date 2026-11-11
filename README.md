@@ -1,3 +1,24 @@
+# NETCLASH: landing e inscripción en Cloudflare Workers
+
+La landing se sirve como assets estáticos de un Worker (`wrangler.jsonc`), que además atiende `POST /api/registro` y guarda las inscripciones en la base D1 `netclash-db` (cuenta personal). Publicada en https://netclash.rupertifrancod.workers.dev.
+
+- `worker/index.ts`: API de inscripción (validación, campo trampa para bots, límite de 5 envíos por minuto por IP).
+- `migrations/`: esquema de la tabla `registros`.
+- `src/lib/evento.ts`: fecha, lugar y correo de contacto; versión de los términos.
+- `src/pages/Registro.tsx` y `src/pages/Terminos.tsx`: formulario y términos y condiciones.
+
+```sh
+npm run db:migrar:local   # crea la tabla en la D1 local
+npm run cf:dev            # build + wrangler dev en http://localhost:8787
+npm run db:migrar         # aplica migraciones a la D1 remota
+npm run cf:deploy         # build + deploy
+npx wrangler d1 execute netclash-db --remote --command "SELECT * FROM registros"
+```
+
+Al cambiar los términos, sube la versión en `src/lib/evento.ts` y en `TERMINOS_VERSION` de `wrangler.jsonc`: cada inscripción guarda la versión que aceptó.
+
+---
+
 # Welcome to your Lovable project
 
 ## Project info

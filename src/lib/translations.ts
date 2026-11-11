@@ -88,9 +88,77 @@ export const translations = {
         ]
       }
     },
+    evento: {
+      title: "El Evento",
+      fecha: "Fecha",
+      lugar: "Lugar",
+      formato: "Formato",
+      formatoValor: "Competencia presencial por equipos",
+      agendaTitle: "Qué vas a encontrar",
+      agenda: [
+        { titulo: "NetWars", texto: "La competencia: CTF de redes y ciberseguridad por equipos, con puntaje en vivo." },
+        { titulo: "Hands-on Labs", texto: "Talleres prácticos de BGP, Ansible, Wi-Fi 6/7 y SASE." },
+        { titulo: "Keynotes", texto: "Charlas sobre 5G, Zero Trust y automatización de redes." },
+        { titulo: "Hiring Lounge", texto: "Un espacio para conversar con las empresas que buscan talento." }
+      ],
+      comoTitle: "Cómo funciona la competencia",
+      pasos: [
+        "Te inscribes solo o con tu equipo.",
+        "Cada equipo recibe su propio laboratorio de red y una terminal compartida en el navegador.",
+        "Resuelven desafíos de BGP, OSPF, DNS y más; un jurado automático suma los puntos en vivo.",
+        "Los mejores equipos ganan premios y visibilidad ante las empresas reclutadoras."
+      ]
+    },
+    registro: {
+      title: "Inscríbete en NETCLASH",
+      subtitle: "Completa el formulario para reservar tu lugar en la competencia. Te escribiremos para confirmar tu cupo.",
+      back: "Volver",
+      nombre: "Nombre y apellido",
+      correo: "Correo electrónico",
+      telefono: "Teléfono o WhatsApp",
+      ciudad: "Ciudad",
+      pais: "País",
+      perfil: "Tu perfil",
+      perfilPlaceholder: "Elige una opción",
+      perfiles: {
+        profesional: "Ingeniero(a) de redes",
+        telecom: "Especialista en telecomunicaciones",
+        estudiante: "Estudiante universitario(a)",
+        profesor: "Profesor(a) de IT o redes",
+        otro: "Otro"
+      },
+      organizacion: "Empresa o universidad",
+      experiencia: "Tu nivel en redes",
+      experiencias: { basico: "Básico", intermedio: "Intermedio", avanzado: "Avanzado" },
+      modalidad: "¿Cómo quieres competir?",
+      modalidades: { equipo: "Ya tengo equipo", individual: "Asígnenme un equipo" },
+      equipo: "Nombre del equipo",
+      equipoAyuda: "Cada integrante se inscribe por separado con el mismo nombre de equipo.",
+      linkedin: "Perfil de LinkedIn",
+      opcional: "opcional",
+      aceptaAntes: "He leído y acepto los ",
+      aceptaLink: "Términos y condiciones y la Política de privacidad",
+      comparte: "Autorizo compartir mi nombre, correo, LinkedIn y resultados con los patrocinadores y empresas reclutadoras del evento.",
+      novedades: "Quiero recibir novedades de NETCLASH por correo.",
+      enviar: "Enviar inscripción",
+      enviando: "Enviando…",
+      revisar: "Revisa este campo",
+      listoTitle: "¡Inscripción recibida!",
+      listoTexto: "Te escribiremos al correo que indicaste para confirmar tu cupo y darte los detalles del evento.",
+      listoVolver: "Volver al inicio",
+      errores: {
+        invalido: "Revisa los campos marcados.",
+        duplicado: "Ese correo ya está inscrito. Si necesitas cambiar tus datos, escríbenos.",
+        limite: "Demasiados intentos. Espera un minuto y vuelve a intentarlo.",
+        version_terminos: "Los términos se actualizaron. Recarga la página y vuelve a enviar el formulario.",
+        servidor: "No pudimos guardar tu inscripción. Inténtalo de nuevo en unos minutos.",
+        red: "No hay conexión con el servidor. Revisa tu internet e inténtalo de nuevo."
+      }
+    },
     footer: {
-      copyright: "© 2025 NETCLASH. Todos los derechos reservados.",
-      tagline: "La Premier Competencia de Redes de Venezuela"
+      copyright: "© 2026 NETCLASH. Todos los derechos reservados.",
+      tagline: "La Premier Competencia de Redes de Venezuela",
+      terms: "Términos y condiciones"
     },
     notFound: {
       title: "404",
@@ -187,9 +255,77 @@ export const translations = {
         ]
       }
     },
+    evento: {
+      title: "The Event",
+      fecha: "Date",
+      lugar: "Venue",
+      formato: "Format",
+      formatoValor: "In-person team competition",
+      agendaTitle: "What you'll find",
+      agenda: [
+        { titulo: "NetWars", texto: "The competition: a team-based networking and cybersecurity CTF with live scoring." },
+        { titulo: "Hands-on Labs", texto: "Practical workshops on BGP, Ansible, Wi-Fi 6/7 and SASE." },
+        { titulo: "Keynotes", texto: "Talks on 5G, Zero Trust and network automation." },
+        { titulo: "Hiring Lounge", texto: "A space to meet the companies looking for talent." }
+      ],
+      comoTitle: "How the competition works",
+      pasos: [
+        "Sign up on your own or with your team.",
+        "Each team gets its own network lab and a shared terminal in the browser.",
+        "Solve BGP, OSPF, DNS challenges and more; an automated judge scores you live.",
+        "The best teams win prizes and visibility with hiring companies."
+      ]
+    },
+    registro: {
+      title: "Register for NETCLASH",
+      subtitle: "Fill out the form to save your spot in the competition. We'll email you to confirm it.",
+      back: "Back",
+      nombre: "Full name",
+      correo: "Email",
+      telefono: "Phone or WhatsApp",
+      ciudad: "City",
+      pais: "Country",
+      perfil: "Your profile",
+      perfilPlaceholder: "Choose an option",
+      perfiles: {
+        profesional: "Network engineer",
+        telecom: "Telecommunications specialist",
+        estudiante: "University student",
+        profesor: "IT or networking professor",
+        otro: "Other"
+      },
+      organizacion: "Company or university",
+      experiencia: "Your networking level",
+      experiencias: { basico: "Beginner", intermedio: "Intermediate", avanzado: "Advanced" },
+      modalidad: "How do you want to compete?",
+      modalidades: { equipo: "I already have a team", individual: "Assign me to a team" },
+      equipo: "Team name",
+      equipoAyuda: "Each member registers separately using the same team name.",
+      linkedin: "LinkedIn profile",
+      opcional: "optional",
+      aceptaAntes: "I have read and accept the ",
+      aceptaLink: "Terms and Conditions and Privacy Policy",
+      comparte: "I authorize sharing my name, email, LinkedIn and results with the event's sponsors and hiring companies.",
+      novedades: "I want to receive NETCLASH news by email.",
+      enviar: "Submit registration",
+      enviando: "Sending…",
+      revisar: "Check this field",
+      listoTitle: "Registration received!",
+      listoTexto: "We'll write to the email you provided to confirm your spot and share the event details.",
+      listoVolver: "Back to home",
+      errores: {
+        invalido: "Please check the highlighted fields.",
+        duplicado: "That email is already registered. If you need to change your details, contact us.",
+        limite: "Too many attempts. Wait a minute and try again.",
+        version_terminos: "The terms were updated. Reload the page and submit the form again.",
+        servidor: "We couldn't save your registration. Please try again in a few minutes.",
+        red: "Can't reach the server. Check your connection and try again."
+      }
+    },
     footer: {
-      copyright: "© 2025 NETCLASH. All rights reserved.",
-      tagline: "Venezuela's Premier Networking Competition"
+      copyright: "© 2026 NETCLASH. All rights reserved.",
+      tagline: "Venezuela's Premier Networking Competition",
+      terms: "Terms and Conditions"
     },
     notFound: {
       title: "404",

@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import EventInfo from "@/components/EventInfo";
 import NetworkWar from "@/components/NetworkWar";
 import Opportunity from "@/components/Opportunity";
 import TargetAudience from "@/components/TargetAudience";
@@ -12,6 +13,7 @@ const Index = () => {
     <main className="min-h-screen bg-background">
       <LanguageSwitcher />
       <Hero />
+      <EventInfo />
       <NetworkWar />
       <Opportunity />
       <TargetAudience />

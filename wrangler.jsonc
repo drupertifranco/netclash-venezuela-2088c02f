@@ -1,0 +1,36 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "netclash",
+  // Cuenta personal (Rupertifrancod@gmail.com)
+  "account_id": "bd19442c3de4483c4d8fca0f4a8806e9",
+  "main": "./worker/index.ts",
+  "compatibility_date": "2026-10-18",
+  "upload_source_maps": true,
+  "observability": { "enabled": true },
+  "assets": {
+    "directory": "./dist/",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "netclash-db",
+      "database_id": "2678cb33-f684-4505-9695-1f99414fe4b6",
+      "migrations_dir": "./migrations"
+    }
+  ],
+  // 5 registros por minuto por IP y por ubicación de Cloudflare
+  "ratelimits": [
+    {
+      "name": "LIMITE_REGISTRO",
+      "namespace_id": "2101",
+      "simple": { "limit": 5, "period": 60 }
+    }
+  ],
+  "vars": {
+    // Debe coincidir con TERMINOS_VERSION en src/lib/evento.ts
+    "TERMINOS_VERSION": "1.0-2026-10-18"
+  }
+}

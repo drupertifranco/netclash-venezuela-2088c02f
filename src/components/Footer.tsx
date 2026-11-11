@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import netclashIcon from "@/assets/netclash-icon.png";
 
@@ -16,9 +17,12 @@ const Footer = () => {
           </div>
           
           {/* Tagline */}
-          <p className="text-sm text-muted-foreground">
-            {t.footer.tagline}
-          </p>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6 text-sm text-muted-foreground">
+            <p>{t.footer.tagline}</p>
+            <Link to="/terminos" className="underline hover:text-primary">
+              {t.footer.terms}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

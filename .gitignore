@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Cloudflare
+.wrangler
+.dev.vars*
+
+# Herramientas locales
+.claude/
+.omc/

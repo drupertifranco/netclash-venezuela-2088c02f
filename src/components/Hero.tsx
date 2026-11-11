@@ -1,11 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Users } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useNavigate } from "react-router-dom";
 import netclashLogo from "@/assets/netclash-logo.png";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
   const { t } = useLanguage();
+  const navigate = useNavigate();
   return (
     <section 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
@@ -46,7 +48,7 @@ const Hero = () => {
             <Button 
               variant="hero" 
               size="lg"
-              onClick={() => window.open('https://forms.gle/MJRc1mGBtMsyGyX18', '_blank')}
+              onClick={() => navigate('/registro')}
             >
               {t.hero.registerBtn}
               <ArrowRight className="w-5 h-5" />
