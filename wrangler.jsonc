@@ -7,6 +7,11 @@
   "compatibility_date": "2026-10-18",
   "upload_source_maps": true,
   "observability": { "enabled": true },
+  // Dominio propio: la zona netclash.org tiene que estar en esta cuenta de Cloudflare antes del deploy
+  "routes": [
+    { "pattern": "netclash.org", "custom_domain": true },
+    { "pattern": "www.netclash.org", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./dist/",
     "binding": "ASSETS",

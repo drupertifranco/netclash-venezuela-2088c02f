@@ -3,7 +3,7 @@ export const EVENTO = {
   fecha: { es: "Por anunciar", en: "To be announced" },
   lugar: { es: "Caracas, Venezuela · sede por anunciar", en: "Caracas, Venezuela · venue TBA" },
   // Correo público para consultas, cancelaciones y derechos sobre los datos
-  contacto: "",
+  contacto: "druperti@netclash.org",
 };
 
 // Al cambiar los términos: subir la versión aquí y en TERMINOS_VERSION de wrangler.jsonc
