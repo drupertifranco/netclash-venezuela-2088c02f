@@ -8,6 +8,8 @@
   "upload_source_maps": true,
   "observability": { "enabled": true },
   // Dominio propio: la zona netclash.org tiene que estar en esta cuenta de Cloudflare antes del deploy
+  // Se mantiene la dirección de workers.dev: hay enlaces viejos que apuntan ahí
+  "workers_dev": true,
   "routes": [
     { "pattern": "netclash.org", "custom_domain": true },
     { "pattern": "www.netclash.org", "custom_domain": true }
