@@ -71,7 +71,7 @@ it("reintento_envia_pendientes_y_respeta_tope", async () => {
   await encolarYEnviar(env, a, "confirmacion"); // queda pendiente (sin key)
   await encolarYEnviar(env, b, "confirmacion");
   await env.DB.prepare("UPDATE postcharla_envios SET estado = 'error', intentos = 5 WHERE inscrito_id = ?").bind(b).run();
-  expect(await reintentarPendientes(conKey)).toBe(1);
+  expect(await reintentarPendientes(conKey, 0)).toBe(1);
   expect(await envio(a)).toMatchObject({ estado: "enviado" });
   expect(await envio(b)).toMatchObject({ estado: "error", intentos: 5 });
 });
@@ -84,4 +84,18 @@ it("plantilla_sin_token", () => {
     expect(t).toContain("Ana P.");
     expect(t).toContain("30 de noviembre");
   }
+});
+
+it("resend_429_queda_pendiente_sin_gastar_intento", async () => {
+  estadoResend = 429;
+  const id = await inscrito();
+  await encolarYEnviar(conKey, id, "confirmacion");
+  expect(await envio(id)).toMatchObject({ estado: "pendiente", intentos: 0 });
+});
+
+it("cron_encola_confirmaciones_perdidas", async () => {
+  // Inscrito sin fila de envío (por ejemplo, si falló el encolado en waitUntil)
+  const id = await inscrito("huerfano@mail.com");
+  expect(await reintentarPendientes(conKey, 0)).toBe(1);
+  expect(await envio(id)).toMatchObject({ estado: "enviado", plantilla: "confirmacion" });
 });
