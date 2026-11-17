@@ -66,6 +66,8 @@ it("duplicado_responde_ya_inscrito", async () => {
   expect(r.status).toBe(200);
   expect(r.cuerpo).toEqual({ ok: true, ya_inscrito: true });
   expect(await filas()).toHaveLength(1);
+  const envios = await env.DB.prepare("SELECT count(*) AS n FROM postcharla_envios WHERE plantilla = 'confirmacion'").first<{ n: number }>();
+  expect(envios!.n).toBe(1);
 });
 
 it("sin_terminos_400", async () => {
