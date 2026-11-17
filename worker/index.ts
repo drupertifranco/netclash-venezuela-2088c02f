@@ -1,4 +1,6 @@
 // Worker de NETCLASH: sirve la landing (assets estáticos) y la API de inscripción sobre D1.
+import { reintentarPendientes } from "./correo";
+import { inscribir } from "./venog";
 
 const PERFILES = ["profesional", "telecom", "estudiante", "profesor", "otro"];
 const EXPERIENCIAS = ["basico", "intermedio", "avanzado"];
@@ -80,12 +82,19 @@ async function registrar(request: Request, env: Env): Promise<Response> {
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const { pathname } = new URL(request.url);
+    if (pathname === "/api/venog/inscripcion") {
+      if (request.method !== "POST") return new Response(null, { status: 405, headers: { Allow: "POST" } });
+      return inscribir(request, env, ctx);
+    }
     if (pathname === "/api/registro") {
       if (request.method !== "POST") return new Response(null, { status: 405, headers: { Allow: "POST" } });
       return registrar(request, env);
     }
     return json({ error: "no_encontrado" }, 404);
+  },
+  async scheduled(_controller, env) {
+    await reintentarPendientes(env);
   },
 } satisfies ExportedHandler<Env>;

@@ -34,10 +34,20 @@
       "name": "LIMITE_REGISTRO",
       "namespace_id": "2101",
       "simple": { "limit": 5, "period": 60 }
+    },
+    // Laboratorio post-charla: el límite es por correo, no por IP (el público de VENOG sale por la misma IP)
+    {
+      "name": "LIMITE_VENOG",
+      "namespace_id": "2102",
+      "simple": { "limit": 3, "period": 60 }
     }
   ],
+  // Reintenta los correos pendientes del laboratorio post-charla
+  "triggers": { "crons": ["*/10 * * * *"] },
   "vars": {
     // Debe coincidir con TERMINOS_VERSION en src/lib/evento.ts
-    "TERMINOS_VERSION": "1.0-2026-10-18"
+    "TERMINOS_VERSION": "1.0-2026-10-18",
+    // Debe coincidir con TERMINOS_LAB_VERSION en src/lib/venog.ts
+    "TERMINOS_LAB_VERSION": "1.0-2026-11-17"
   }
 }
