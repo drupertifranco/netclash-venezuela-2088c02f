@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "cf:dev": "vite build && wrangler dev",
-    "cf:deploy": "vite build && wrangler deploy",
+    "cf:deploy": "node scripts/verificar-env.mjs && vite build && wrangler deploy",
     "cf:types": "wrangler types",
     "db:migrar:local": "wrangler d1 migrations apply netclash-db --local",
     "db:migrar": "wrangler d1 migrations apply netclash-db --remote",

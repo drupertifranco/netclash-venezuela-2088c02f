@@ -39,6 +39,8 @@ const AVISOS: Record<string, string> = {
   version_terminos: "Los términos cambiaron. Recarga la página.",
   servidor: "Algo falló de nuestro lado. Inténtalo de nuevo en un momento.",
   red: "No hay conexión. Revisa tu internet e inténtalo de nuevo.",
+  verificacion:
+    "No cargó la verificación anti-robots. Desactiva el bloqueador de anuncios o cambia a datos móviles, y recarga la página.",
 };
 
 // Mismo cálculo que el Worker: "Ana María Pérez" -> "Ana P."
@@ -74,24 +76,49 @@ const Venog = () => {
     document.title = "Laboratorio NetClash · inscripción";
   }, []);
 
-  // Turnstile en modo explícito: el botón queda deshabilitado hasta tener token
+  // Turnstile en modo explícito: el botón queda deshabilitado hasta tener token.
+  // Si el script no carga (bloqueador, red lenta) o el widget falla, se avisa qué hacer en vez de quedar esperando.
   useEffect(() => {
+    let listo = false;
+    const fallo = () => {
+      if (!listo) setAviso(AVISOS.verificacion);
+    };
+    const espera = window.setTimeout(fallo, 15000);
     const montar = () => {
       if (!caja.current || !window.turnstile || widget.current) return;
-      widget.current = window.turnstile.render(caja.current, {
+      try {
+        widget.current = window.turnstile.render(caja.current, {
         sitekey: TURNSTILE_SITE_KEY,
         language: "es",
-        callback: (t: string) => setToken(t),
+        callback: (t: string) => {
+          listo = true;
+          setToken(t);
+          setAviso((a) => (a === AVISOS.verificacion ? "" : a));
+        },
         "expired-callback": () => setToken(""),
-        "error-callback": () => setToken(""),
-      });
+        "error-callback": () => {
+          setToken("");
+          setAviso(AVISOS.verificacion);
+        },
+        });
+      } catch (e) {
+        console.error("Turnstile no se pudo montar", e);
+        fallo();
+      }
     };
-    if (window.turnstile) return montar();
-    const s = document.createElement("script");
-    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
-    s.async = true;
-    s.onload = montar;
-    document.head.appendChild(s);
+    if (window.turnstile) montar();
+    else {
+      const s = document.createElement("script");
+      s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      s.async = true;
+      s.onload = montar;
+      s.onerror = () => {
+        listo = false;
+        fallo();
+      };
+      document.head.appendChild(s);
+    }
+    return () => window.clearTimeout(espera);
   }, []);
 
   const poner = <K extends keyof Datos>(k: K, v: Datos[K]) => setDatos((d) => ({ ...d, [k]: v }));
