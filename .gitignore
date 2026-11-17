@@ -31,3 +31,9 @@ dist-ssr
 .claude/
 .omc/
 .superpowers/
+
+# Secretos y llaves locales
+.dev.vars
+.env.local
+.env.*.local
+.env.production
