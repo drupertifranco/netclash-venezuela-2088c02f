@@ -8,6 +8,9 @@ const SITEVERIFY = "https://challenges.cloudflare.com/turnstile/v0/siteverify";
 const json = (datos: unknown, status = 200) => Response.json(datos, { status });
 
 // "Ana María Pérez" -> "Ana P."
+// Nombre y alias van en correos y en el top 10: sin emojis ni banderas
+const EMOJI = /[\p{Extended_Pictographic}\p{Regional_Indicator}]/u;
+
 export function aliasPorDefecto(nombre: string): string {
   const partes = nombre.trim().split(/\s+/);
   if (partes.length < 2) return partes[0].slice(0, 40);
@@ -52,14 +55,14 @@ export async function inscribir(request: Request, env: Env, ctx: ExecutionContex
   if (d.version_terminos !== env.TERMINOS_LAB_VERSION) return json({ error: "version_terminos" }, 400);
 
   const errores: string[] = [];
-  const campo = (k: string, max: number, requerido = true) => {
+  const campo = (k: string, max: number, requerido = true, sinEmoji = false) => {
     const v = typeof d[k] === "string" ? (d[k] as string).trim() : "";
-    if (v.length > max || (requerido && !v)) errores.push(k);
+    if (v.length > max || (requerido && !v) || (sinEmoji && EMOJI.test(v))) errores.push(k);
     return v || null;
   };
-  const nombre = campo("nombre", 120);
+  const nombre = campo("nombre", 120, true, true);
   const correo = campo("correo", 254)?.toLowerCase() ?? null;
-  const aliasPropio = campo("alias", 40, false);
+  const aliasPropio = campo("alias", 40, false, true);
   const organizacion = campo("organizacion", 120, false);
   const experiencia = d.experiencia;
   if (typeof experiencia !== "string" || !EXPERIENCIAS.includes(experiencia)) errores.push("experiencia");

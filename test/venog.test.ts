@@ -102,3 +102,14 @@ it("alias_propio_se_respeta", async () => {
   await enviar({ ...base, correo: "alias@mail.com", alias: "  router_ana " });
   expect((await filas())[0].alias).toBe("router_ana");
 });
+
+it("emoji_en_nombre_o_alias_400", async () => {
+  const r = await enviar({ ...base, correo: "emoji@mail.com", nombre: "Ana 🚀 Pérez", alias: "ana🔥" });
+  expect(r.status).toBe(400);
+  expect(r.cuerpo.campos).toEqual(expect.arrayContaining(["nombre", "alias"]));
+  expect(await filas()).toHaveLength(0);
+});
+
+it("acentos_y_enie_se_aceptan", async () => {
+  expect((await enviar({ ...base, correo: "nunez@mail.com", nombre: "José Núñez", alias: "Ñandú-1" })).status).toBe(201);
+});

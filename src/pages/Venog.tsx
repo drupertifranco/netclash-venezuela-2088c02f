@@ -33,7 +33,7 @@ type Datos = typeof INICIAL;
 const EXPERIENCIAS = { basico: "Básico", intermedio: "Intermedio", avanzado: "Avanzado" };
 
 const AVISOS: Record<string, string> = {
-  invalido: "Revisa los campos marcados.",
+  invalido: "Revisa los campos marcados. El nombre y el alias no pueden llevar emojis.",
   turnstile: "No pudimos comprobar que no eres un robot. Inténtalo de nuevo.",
   limite: "Demasiados intentos con ese correo. Espera un minuto y vuelve a intentarlo.",
   version_terminos: "Los términos cambiaron. Recarga la página.",
@@ -50,11 +50,13 @@ const aliasPorDefecto = (nombre: string) => {
   return `${p[0]} ${p[p.length - 1][0].toUpperCase()}.`;
 };
 
+const EMOJI = /[\p{Extended_Pictographic}\p{Regional_Indicator}]/u;
+
 const validar = (d: Datos) => {
   const e: string[] = [];
-  if (!d.nombre.trim()) e.push("nombre");
+  if (!d.nombre.trim() || EMOJI.test(d.nombre)) e.push("nombre");
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.correo.trim())) e.push("correo");
-  if (d.alias.trim().length > 40) e.push("alias");
+  if (d.alias.trim().length > 40 || EMOJI.test(d.alias)) e.push("alias");
   if (!d.experiencia) e.push("experiencia");
   if (!d.acepta_terminos) e.push("acepta_terminos");
   return e;
@@ -151,6 +153,9 @@ const Venog = () => {
       window.turnstile?.reset(widget.current);
     } catch {
       setAviso(AVISOS.red);
+      // El token pudo haberse gastado si el pedido llegó al servidor: pedir uno nuevo
+      setToken("");
+      window.turnstile?.reset(widget.current);
     } finally {
       setEnviando(false);
     }
