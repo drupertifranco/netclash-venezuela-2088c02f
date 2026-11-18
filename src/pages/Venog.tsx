@@ -103,6 +103,9 @@ const Venog = () => {
           setAviso(AVISOS.verificacion);
         },
         });
+        // El widget ya está en pantalla: el temporizador solo vigila que cargue, no cuánto tarda la persona en marcarlo
+        listo = true;
+        window.clearTimeout(espera);
       } catch (e) {
         console.error("Turnstile no se pudo montar", e);
         fallo();
